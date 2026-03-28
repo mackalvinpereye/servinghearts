@@ -3,9 +3,6 @@ A PHP-based blood inventory and request
 management system built to streamline 
 blood donation logistics.
 
-## 📸 Screenshots
-<img width="1919" height="822" alt="image" src="https://github.com/user-attachments/assets/7ddf37a5-ee09-4edf-8494-e96980f9a989" />
-
 ## 🚀 Features
 - Blood inventory management
 - User and admin modules
@@ -26,5 +23,4 @@ blood donation logistics.
 
 ## 👨‍💻 Developer
 Built by Mack Alvin — PHP Developer
-📧 [your email]
-🔗 [your other links]
+📧 macoypereye3@gmail.com

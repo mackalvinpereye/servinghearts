@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serving Hearts Charity Inc.</title>
+  <link rel="icon" type="image/x-icon" href="images/shlogo.png">
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === HEADER / NAVBAR === */
+header {
+  width: 100%;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background-color: #a22c29;
+  height: 100px;   /* ✅ fixed height */
+  padding: 0 2%;  /* ✅ remove vertical padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 2px solid #7a0000;
+}
+
+#navbar a {
+  font-size: 18px;
+  margin-left: 10px;
+  padding:18px;
+  color: #fff;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+#navbar a:hover {
+  color: #ffd700;
+}
+
+.signin-btn {
+    font-size: 18px;
+    margin-left: 10px;
+    padding:18px;
+    color: red;
+    font-weight: 500;
+    transition: 0.3s;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.signin-btn:hover {
+  background-color: rgb(85, 0, 0);
+  color: white;
+}
+
+.logo img {
+    height: 80px;   /* ✅ adjust freely */
+    width: auto;    /* keeps aspect ratio */
+    object-fit: contain;
+}
+
+.contact {
+  margin-left: -80px;
+}
+
+.contactus-section {
+    padding: 20px;
+    margin-top: 30px;
+    background: #F8F8FF;
+}
+
+.contact .row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 70rem;
+    margin-top: 7rem;
+    margin-left: 10rem;
+}
+
+.contact form {
+    flex: 1;
+    padding: 45px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.contact form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #900603;
+    margin-left: 16rem;
+}
+
+.contact form .inputBox {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.contact form .inputBox span {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #666;
+    font-size: 20px;
+}
+
+.contact form .inputBox input,
+.contact form .inputBox textarea {
+    width: 100%;
+    padding: 10px 15px 10px 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+}
+
+.contact form .inputBox textarea {
+    resize: none;
+}
+
+.contact form .btn-contact {
+    display: inline-block;
+    background: linear-gradient(135deg, #d06f66, #8c0808);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 18rem;
+}
+
+.contact form .btn-contact:hover {
+    background: #8c0808;
+}
+
+.box {
+    flex: 0 1 300px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-left: 5rem;
+    background-color: #a43e38;
+    height: 27rem;
+}
+
+.box .icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    padding-top: 1rem;
+}
+
+.box p {
+    color: #ffffff;
+    font-size: 16px;
+    margin: 5px 0;
+    font-weight: 500;
+}
+.footer {
+    width: 100%;
+    background-color: #222;
+    color: #fff;
+    padding: 40px 10% 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-col h2, 
+.footer-col h3 {
+    margin-bottom: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.footer-col p,
+.footer-col li {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 5px 0;
+    list-style: none;
+}
+
+.footer-col ul {
+    padding: 0;
+    margin: 0;
+}
+
+.social-media {
+    display: flex;
+    gap: 15px;
+}
+
+.social-media a {
+    color: #fff;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.social-media a:hover {
+    color: #f44336;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+}
+
+.footer-bottom p {
+    font-size: 13px;
+    color: #aaa;
+}
+
+</style>
+</head>
+<body>
+        <header>
+        <div class="logoContent">
+        <a href="home.html" class="logo"><img src="images/logo.png" alt="Serving Hearts Logo"></a>
+        </div>
+        <nav id="navbar">
+        <a href="donate.html"><i class="fas fa-hand-holding-heart"></i> Donate</a>
+        <a href="receive.html"><i class="fas fa-tint"></i> Receive</a>
+        <a href="volunteer.html"><i class="fas fa-users"></i> Volunteer</a>
+        <a href="aboutus.html"><i class="fas fa-info-circle"></i> About Us</a>
+        <a href="contactus.html"><i class="fas fa-envelope"></i> Contact Us</a>
+        </nav>
+        <a href="http://localhost/servinghearts/shinventory/index.php" class="signin-btn">
+      <i class="fas fa-sign-in-alt"></i> Sign In</a>
+  </header>
+
+          <section class="contactus-section">
+            <section class="contact" id="contact">
+                <div class="row">
+        
+                    <div class="box">
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <p>Eusebio Bliss 3 Multipurpose Hall. Maybunga, Pasig</p>
+                        <div class="icon"><i class="fas fa-phone"></i></div>
+                        <p>0928 413 8066</p>
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <p>servingheartscharity@gmail.com</p>
+                    </div> 
+        
+                    <form action="https://formspree.io/f/mjkbyedr" method="POST">
+                        <h2>Get in Touch</h2>
+        
+                        <div class="inputBox">
+                            <span class="fas fa-user"></span>
+                            <input type="text" placeholder="Name" name="Name" required>
+                        </div>
+        
+                        <div class="inputBox">
+                            <span class="fas fa-envelope"></span>
+                            <input type="email" placeholder="Email" name="Email" required>
+                        </div>
+        
+                        <div class="inputBox">
+                            <span class="fas fa-phone"></span>
+                            <input type="number" placeholder="Phone" name="Phone" required>
+                        </div>
+        
+                        <div class="inputBox">
+                            <span class="fas fa-message"></span>
+                            <textarea name="Message" placeholder="Message" rows="3" required></textarea>
+                        </div>
+        
+                        <input type="submit" value="Send Message" class="btn-contact">
+                    </form>
+                    
+                </div>
+              </section>
+            </section>
+
+            <footer class="footer">
+    <div class="footer-top">
+        <!-- Left -->
+        <div class="footer-col">
+            <h2>Serving Hearts Charity Inc.</h2>
+            <p>Extending hands to those in need with love and compassion.</p>
+        </div>
+
+        <!-- Middle -->
+        <div class="footer-col">
+            <h3>Contact</h3>
+            <ul>
+                <li><i class="fas fa-map-marker-alt"></i> Eusebio Bliss 3 Multipurpose Hall, Maybunga, Pasig</li>
+                <li><i class="fas fa-phone-alt"></i> 0928 413 8066</li>
+            </ul>
+        </div>
+
+        <!-- Right -->
+        <div class="footer-col">
+            <h3>Follow Us</h3>
+            <div class="social-media">
+                <a href="https://www.facebook.com/servingheartscharity" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 Serving Hearts Charity Inc. | All Rights Reserved</p>
+    </div>
+</footer>
+
+
+
+    <!--Swiper JS-->
+    <script src="WEB/js/swiper-bundle.min.js"></script>
+    <!--Javascript-->
+    <script src="WEB/js/script.js"></script>
+</body>
+</html>

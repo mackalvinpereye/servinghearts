@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serving Hearts Charity Inc.</title>
+  <link rel="icon" type="image/x-icon" href="images/shlogo.png">
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === HEADER / NAVBAR === */
+header {
+  width: 100%;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background-color: #a22c29;
+  height: 100px;   /* ✅ fixed height */
+  padding: 0 2%;  /* ✅ remove vertical padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 2px solid #7a0000;
+}
+
+#navbar a {
+  font-size: 18px;
+  margin-left: 10px;
+  padding:18px;
+  color: #fff;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+#navbar a:hover {
+  color: #ffd700;
+}
+
+.signin-btn {
+    font-size: 18px;
+    margin-left: 10px;
+    padding:18px;
+    color: red;
+    font-weight: 500;
+    transition: 0.3s;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.signin-btn:hover {
+  background-color: rgb(85, 0, 0);
+  color: white;
+}
+
+.logo img {
+    height: 80px;   /* ✅ adjust freely */
+    width: auto;    /* keeps aspect ratio */
+    object-fit: contain;
+}
+
+.volunteer-section {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+/* Hero Section */
+.hero {
+    position: relative;
+    text-align: center;
+    background: url('./images/bg5.png') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 100px 20px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+    margin-top: 30px;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Darkens the image */
+    z-index: 1;
+}
+
+/* Ensure the text is on top of the overlay */
+.hero h1,
+.hero p,
+.hero {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    animation: slideInFromTop 1s ease-out;
+}
+
+.hero p {
+    font-size: 1.4em;
+    margin-bottom: 30px;
+    animation: slideInFromTop 1.5s ease-out;
+    color: #ccc;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.hero .cta-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: darkred;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: slideInFromTop 2s ease-out;
+    box-shadow:  2px 2px 5px rgb(0, 0, 0, 0.7 );
+}
+
+.hero .cta-button:hover {
+    background-color: #a63a3a;
+    transform: translateY(-3px);
+}
+
+/* Animation */
+@keyframes slideInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px); /* Start slightly above */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at default position */
+    }
+}
+
+/* Membership Section */
+.membership {
+    text-align: center;
+    padding: 80px 0;
+    background-color: #f4f6f9; /* Soft background for a clean look */
+    border-top: 5px solid #d64550; /* Professional bold top border */
+}
+
+.membership h2 {
+    font-size: 48px;
+    color: #1a1a1a; /* Darker and stronger heading */
+    font-family: 'Roboto Slab', serif; /* Professional serif font for headers */
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.membership-content {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    font-size: 20px;
+    color: #444; /* Balanced color for body text */
+    line-height: 1.8;
+    font-family: 'Open Sans', sans-serif; /* Clean sans-serif for the body */
+}
+
+.membership-content p {
+    margin-bottom: 50px;
+    font-weight: 400;
+    font-size: 22px; /* Slightly larger for professional readability */
+    color: #2b2b2b; /* Darker, professional tone for text */
+}
+
+.membership-benefits {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    gap: 25px; /* Adequate spacing between benefit boxes */
+    flex-wrap: wrap; /* Adjust for smaller screens */
+}
+
+.membership-benefits .benefit-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    flex: 1;
+    font-weight: 600;
+    text-align: center;
+    font-size: 18px;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.1); /* Stronger shadow for depth */
+    color: #696969; /* Use the brand color for emphasis */
+    font-family: 'Poppins', sans-serif; /* Elegant font for benefits */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.membership-benefits .benefit-item:hover {
+    transform: scale(1.05); /* Lift effect on hover */
+    box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.15); /* Bolder shadow on hover */
+    background-color: #f9fafb; /* Light background shift on hover */
+}
+
+
+/* Volunteer Roles Section */
+.volunteer-roles {
+    text-align: center;
+    padding: 60px 0;
+    background-color: #f9f9f9; /* Light background for a clean look */
+    border-top: 5px solid #d64550; /* Brand color to maintain consistency */
+}
+
+.volunteer-roles h2 {
+    font-size: 42px;
+    color: #1a1a1a; /* Stronger heading color */
+    font-family: 'Roboto Slab', serif; /* Serif font for a professional feel */
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+.roles-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    gap: 30px; /* Balanced gap between role items */
+}
+
+.role-item {
+    flex: 1;
+    text-align: center;
+    background-color: #fff; /* White background for role items */
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.role-item img {
+    width: 100%;
+    height: 250px; /* More height for better image display */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.role-item p {
+    font-size: 20px;
+    color: #444; /* Soft, clean font color */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.role-item:hover {
+    transform: translateY(-10px); /* Subtle hover effect */
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover */
+}
+
+
+/* Benefits Section */
+.benefits {
+    text-align: center;
+    padding: 60px 0; /* Increased padding for better spacing */
+    background-color: #f9f9f9; /* Light background for clean look */
+    border-top: 5px solid #d64550; /* Consistent brand color */
+}
+
+.benefits h2 {
+    font-size: 42px;
+    color: #1a1a1a;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px; /* More space between items */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.benefits-grid .benefit-item {
+    background-color: #fff; /* White background for a clean, modern look */
+    padding: 40px; /* Slightly more padding for comfort */
+    border-radius: 12px; /* Softer, rounded corners */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #444;
+}
+
+.benefits-grid .benefit-item i {
+    font-size: 40px;
+    color: #d64550; /* Icon color matching the brand */
+    margin-bottom: 15px; /* Space between icon and text */
+}
+
+.benefits-grid .benefit-item p {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.benefits-grid .benefit-item:hover {
+    transform: translateY(-10px); /* Hover lift effect */
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover */
+}
+
+.footer {
+    width: 100%;
+    background-color: #222;
+    color: #fff;
+    padding: 40px 10% 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-col h2, 
+.footer-col h3 {
+    margin-bottom: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.footer-col p,
+.footer-col li {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 5px 0;
+    list-style: none;
+}
+
+.footer-col ul {
+    padding: 0;
+    margin: 0;
+}
+
+.social-media {
+    display: flex;
+    gap: 15px;
+}
+
+.social-media a {
+    color: #fff;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.social-media a:hover {
+    color: #f44336;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+}
+
+.footer-bottom p {
+    font-size: 13px;
+    color: #aaa;
+}
+</style>
+</head>
+<body>
+    <header>
+    <div class="logoContent">
+      <a href="home.html" class="logo"><img src="images/logo.png" alt="Serving Hearts Logo"></a>
+    </div>
+    <nav id="navbar">
+      <a href="donate.html"><i class="fas fa-hand-holding-heart"></i> Donate</a>
+      <a href="receive.html"><i class="fas fa-tint"></i> Receive</a>
+      <a href="volunteer.html"><i class="fas fa-users"></i> Volunteer</a>
+      <a href="aboutus.html"><i class="fas fa-info-circle"></i> About Us</a>
+      <a href="contactus.html"><i class="fas fa-envelope"></i> Contact Us</a>
+    </nav>
+    <a href="http://localhost/servinghearts/shinventory/index.php" class="signin-btn">
+      <i class="fas fa-sign-in-alt"></i> Sign In</a>
+  </header>
+          <section class="volunteer-section">
+            <div class="hero">
+                <h1>Volunteer with Us</h1>
+                <p>Make a Difference in Your Community</p>
+            </div>
+        
+           <!-- Membership Section -->
+            <div class="membership">
+                <h2>Become a Member</h2>
+                <div class="membership-content">
+                    <p>To become a member of Serving Hearts Charity Inc., you must donate at least ten bags of blood. Your contribution shows loyalty and a willingness to help others.</p>
+                    <div class="membership-benefits">
+                        <div class="benefit-item">Exclusive Member Events</div>
+                        <div class="benefit-item">Recognition in Annual Report</div>
+                        <div class="benefit-item">Special Volunteer Opportunities</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Volunteer Roles Section -->
+            <div class="volunteer-roles">
+                <h2>Volunteer Roles</h2>
+                <div class="roles-content">
+                    <div class="role-item">
+                        <img src="images/v7.jpg" alt="Blood Drive Organizer">
+                        <p>Blood Drive Organizer</p>
+                    </div>
+                    <div class="role-item">
+                        <img src="images/v4.jpg" alt="Community Outreach">
+                        <p>Community Outreach</p>
+                    </div>
+                    <div class="role-item">
+                        <img src="images/v5.jpg" alt="Donor Support">
+                        <p>Donor Support</p>
+                    </div>
+                </div>
+            </div>
+
+        
+           <!-- Benefits Section -->
+            <div class="benefits">
+                <h2>Benefits of Volunteering</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <i class="fas fa-lightbulb"></i> <!-- Icon added -->
+                        <p>Develop New Skills</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-users"></i> <!-- Icon added -->
+                        <p>Meet Like-minded People</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-briefcase"></i> <!-- Icon added -->
+                        <p>Enhance Your Resume</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-trophy"></i> <!-- Icon added -->
+                        <p>Gain a Sense of Accomplishment</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    <footer class="footer">
+    <div class="footer-top">
+        <!-- Left -->
+        <div class="footer-col">
+            <h2>Serving Hearts Charity Inc.</h2>
+            <p>Extending hands to those in need with love and compassion.</p>
+        </div>
+
+        <!-- Middle -->
+        <div class="footer-col">
+            <h3>Contact</h3>
+            <ul>
+                <li><i class="fas fa-map-marker-alt"></i> Eusebio Bliss 3 Multipurpose Hall, Maybunga, Pasig</li>
+                <li><i class="fas fa-phone-alt"></i> 0928 413 8066</li>
+            </ul>
+        </div>
+
+        <!-- Right -->
+        <div class="footer-col">
+            <h3>Follow Us</h3>
+            <div class="social-media">
+                <a href="https://www.facebook.com/servingheartscharity" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 Serving Hearts Charity Inc. | All Rights Reserved</p>
+    </div>
+</footer>
+
+
+
+    <!--Swiper JS-->
+    <script src="WEB/js/swiper-bundle.min.js"></script>
+    <!--Javascript-->
+    <script src="WEB/js/script.js"></script>
+</body>
+</html>

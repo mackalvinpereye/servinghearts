@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serving Hearts Charity Inc.</title>
+  <link rel="icon" type="image/x-icon" href="images/shlogo.png">
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === HEADER / NAVBAR === */
+header {
+  width: 100%;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background-color: #a22c29;
+  height: 100px;   /* ✅ fixed height */
+  padding: 0 2%;  /* ✅ remove vertical padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 2px solid #7a0000;
+}
+#navbar a {
+  font-size: 18px;
+  margin-left: 10px;
+  padding:18px;
+  color: #fff;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+#navbar a:hover {
+  color: #ffd700;
+}
+
+.signin-btn {
+    font-size: 18px;
+    margin-left: 10px;
+    padding:18px;
+    color: red;
+    font-weight: 500;
+    transition: 0.3s;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.signin-btn:hover {
+  background-color: rgb(85, 0, 0);
+  color: white;
+}
+
+/* === LOGO === */
+.logo img {
+    height: 80px;   /* ✅ adjust freely */
+    width: auto;    /* keeps aspect ratio */
+    object-fit: contain;
+}
+
+/* Base Hero Section */
+.hero-split {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Left Content Section */
+.hero-content {
+  flex: 1;
+  background: #fff;
+  color: #222;
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-content h1 span {
+  color: #f44336;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 35px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Buttons Group */
+.btn-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: #f44336;
+  padding: 12px 30px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(244, 67, 54, 0.3);
+}
+
+.btn-primary:hover {
+  background: #d32f2f;
+  box-shadow: 0 6px 20px rgba(244, 67, 54, 0.4);
+}
+
+/* Right Image Section */
+.hero-image {
+  flex: 1;
+  background: url("images/bg1.png") center/cover no-repeat;
+  position: relative;
+  min-height: 400px;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.4);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Gradient Overlay for Style */
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.3)
+  );
+  transition: background 0.3s ease-in-out;
+}
+
+/* Hover Effects on Image */
+.hero-image:hover {
+  transform: scale(1.05);
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.5);
+}
+
+.hero-image:hover .image-overlay {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.4)
+  );
+}
+
+.mission-vision-section {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 80px 20px;
+    margin-top: 50px; /* Adjust if necessary to match header height */
+    background: url("./images/bg2.png") no-repeat center center/cover;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    height: 380px;
+    overflow: hidden; /* Prevent overflow */
+}
+
+.mission-vision-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(100px); /* Start below */
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+.mission-vision-overlay {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+.mission-vision-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+.mission-vision-overlay.visible {
+    opacity: 1; /* Become visible */
+    transform: translateY(0); /* Slide into view */
+}
+
+
+.mission-vision-overlay h2 {
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.mission-vision-overlay p {
+    font-size: 20px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-top: 5px;
+}
+
+/* Keyframes for up-to-down animation */
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100px); /* Move from above */
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0); /* End in original position */
+        opacity: 1;
+    }
+}
+
+.charity-mission-vision {
+    display: flex;
+    justify-content: space-between;
+    background-color: #333; /* Dark background as per the image */
+    padding: 50px;
+    color: #fff; /* White text color */
+}
+
+.mission, .vision {
+    background-color: #222; /* Slightly lighter box color */
+    padding: 30px;
+    border-radius: 10px;
+    flex-basis: 45%;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #444; /* Border similar to the uploaded image */
+}
+
+.icon-wrapper {
+    background-color: #DAA520;
+    padding: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.icon-wrapper i {
+    font-size: 32px;
+    color: #fff;
+}
+
+.mission h3, .vision h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.mission p, .vision p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ccc; /* Lighter text color */
+}
+
+.mission:hover, .vision:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.services {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #8b0c0c; /* Dark red background */
+}
+
+.services h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: white; /* White text color */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.service-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;   /* prevent wrapping */
+    gap: 20px;           /* spacing between boxes */
+}
+
+.service {
+    flex: 1;             /* all boxes take equal width */
+    max-width: 23%;      /* keep 4 boxes per row */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+
+.service img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.service h3 {
+    font-size: 20px;
+    color: #8b0c0c; /* Red for the headers */
+}
+
+.service p {
+    font-size: 14px;
+    color: #666; /* Grey color for text */
+}
+
+.service:hover {
+    transform: scale(1.05); /* Simple hover effect */
+}
+.footer {
+    width: 100%;
+    background-color: #222;
+    color: #fff;
+    padding: 40px 10% 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-col h2, 
+.footer-col h3 {
+    margin-bottom: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.footer-col p,
+.footer-col li {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 5px 0;
+    list-style: none;
+}
+
+.footer-col ul {
+    padding: 0;
+    margin: 0;
+}
+
+.social-media {
+    display: flex;
+    gap: 15px;
+}
+
+.social-media a {
+    color: #fff;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.social-media a:hover {
+    color: #f44336;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+}
+
+.footer-bottom p {
+    font-size: 13px;
+    color: #aaa;
+}
+
+
+</style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="logoContent">
+      <a href="home.html" class="logo"><img src="images/logo.png" alt="Serving Hearts Logo"></a>
+    </div>
+    <nav id="navbar">
+      <a href="donate.html"><i class="fas fa-hand-holding-heart"></i> Donate</a>
+      <a href="receive.html"><i class="fas fa-tint"></i> Receive</a>
+      <a href="volunteer.html"><i class="fas fa-users"></i> Volunteer</a>
+      <a href="aboutus.html"><i class="fas fa-info-circle"></i> About Us</a>
+      <a href="contactus.html"><i class="fas fa-envelope"></i> Contact Us</a>
+    </nav>
+    <a href="http://localhost/servinghearts/shinventory/index.php" class="signin-btn">
+      <i class="fas fa-sign-in-alt"></i> Sign In</a>
+  </header>
+
+  <section class="hero-split">
+  <div class="hero-content">
+    <h1>Donate Blood, <span>Save Lives</span></h1>
+    <p>
+      Every drop counts. Join the mission to save lives and make the world a healthier place.
+    </p>
+    <div class="btn-group">
+      <a href="/servinghearts/aboutus.html" class="btn-primary">Learn More</a>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <div class="image-overlay"></div>
+  </div>
+</section>
+
+        <div class="mission-vision-section">
+            <div class="mission-vision-overlay">
+                <h2>Serving Hearts Charity Inc.</h2>
+                <p>Serving Hearts Charity Inc. empowers communities by ensuring everyone has access to life-saving blood donations. We also promote a spirit of community and compassion through our services.</p>
+            </div>
+        </div>
+        
+        <div class="charity-mission-vision">
+            <div class="vision">
+                <div class="icon-wrapper">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3>Vision</h3>
+                <p>To become the largest website design firm by emphasizing innovative thinking to establish ourselves as a worldwide recognized company by offering the highest standard services and solutions.</p>
+            </div>
+            <div class="mission">
+                <div class="icon-wrapper">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <h3>Mission</h3>
+                <p>To provide customer-centric, result-oriented, cost-competitive, innovative, and functional IT solutions to our valuable worldwide customers.</p>
+            </div>
+        </div>
+                <section class="services" id="services">
+            <h2>Other Services</h2>
+                <div class="service-container">
+                        <div class="service">
+                            <img src="images/s1.png" alt="Blood Letting">
+                            <h3>Blood Letting</h3>
+                            <p>Organizing regular blood donation drives to ensure a steady supply of blood for those in need.</p>
+                        </div>
+                        <div class="service">
+                            <img src="images/s2.png" alt="Gift Giving">
+                            <h3>Gift Giving</h3>
+                            <p>Distributing gifts and essentials to support and uplift those in need within the community.</p>
+                        </div>
+                        <div class="service">
+                            <img src="images/s3.png" alt="Feeding Program">
+                            <h3>Feeding Program</h3>
+                            <p>Providing nutritious meals to families and individuals to combat hunger and improve well-being.</p>
+                        </div>
+                        <div class="service">
+                            <img src="images/s4.png" alt="Vision Screening">
+                            <h3>Vision Screening</h3>
+                            <p>Offering vision screening services to detect and address vision problems early.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>                
+        </section>
+
+        <footer class="footer">
+    <div class="footer-top">
+        <!-- Left -->
+        <div class="footer-col">
+            <h2>Serving Hearts Charity Inc.</h2>
+            <p>Extending hands to those in need with love and compassion.</p>
+        </div>
+
+        <!-- Middle -->
+        <div class="footer-col">
+            <h3>Contact</h3>
+            <ul>
+                <li><i class="fas fa-map-marker-alt"></i> Eusebio Bliss 3 Multipurpose Hall, Maybunga, Pasig</li>
+                <li><i class="fas fa-phone-alt"></i> 0928 413 8066</li>
+            </ul>
+        </div>
+
+        <!-- Right -->
+        <div class="footer-col">
+            <h3>Follow Us</h3>
+            <div class="social-media">
+                <a href="https://www.facebook.com/servingheartscharity" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 Serving Hearts Charity Inc. | All Rights Reserved</p>
+    </div>
+</footer>
+
+
+
+    <!--Swiper JS-->
+    <script src="WEB/js/swiper-bundle.min.js"></script>
+    <!--Javascript-->
+    <script src="WEB/js/script.js"></script>
+</body>
+</html>

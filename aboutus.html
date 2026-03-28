@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serving Hearts Charity Inc.</title>
+  <link rel="icon" type="image/x-icon" href="images/shlogo.png">
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === HEADER / NAVBAR === */
+header {
+  width: 100%;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background-color: #a22c29;
+  height: 100px;   /* ✅ fixed height */
+  padding: 0 2%;  /* ✅ remove vertical padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 2px solid #7a0000;
+}
+
+#navbar a {
+  font-size: 18px;
+  margin-left: 10px;
+  padding:18px;
+  color: #fff;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+#navbar a:hover {
+  color: #ffd700;
+}
+
+.signin-btn {
+    font-size: 18px;
+    margin-left: 10px;
+    padding:18px;
+    color: red;
+    font-weight: 500;
+    transition: 0.3s;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.signin-btn:hover {
+  background-color: rgb(85, 0, 0);
+  color: white;
+}
+
+.logo img {
+    height: 80px;   /* ✅ adjust freely */
+    width: auto;    /* keeps aspect ratio */
+    object-fit: contain;
+}
+
+.aboutus-section {
+    padding: 60px 20px;
+    background: #fafafa;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+}
+
+.aboutus-section .hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./images/a3.png') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.aboutus-section .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.aboutus-section h2 {
+    font-size: 36px;
+    color: #d64550;
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.aboutus-section h2::after {
+    content: '';
+    width: 80px;
+    height: 3px;
+    background-color: #d64550;
+    display: block;
+    margin: 10px auto 0;
+}
+
+.aboutus-section p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    color: #555;
+    text-align: justify;
+}
+
+.aboutus-section .team {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.aboutus-section .team-member {
+    background: #f7f7f7;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.aboutus-section .team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.aboutus-section .team-member img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 4px solid #d64550;
+}
+
+.aboutus-section .team-member h3 {
+    font-size: 22px;
+    color: #d64550;
+    margin-bottom: 10px;
+}
+
+.aboutus-section .team-member p {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.footer {
+    width: 100%;
+    background-color: #222;
+    color: #fff;
+    padding: 40px 10% 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-col h2, 
+.footer-col h3 {
+    margin-bottom: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.footer-col p,
+.footer-col li {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 5px 0;
+    list-style: none;
+}
+
+.footer-col ul {
+    padding: 0;
+    margin: 0;
+}
+
+.social-media {
+    display: flex;
+    gap: 15px;
+}
+
+.social-media a {
+    color: #fff;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.social-media a:hover {
+    color: #f44336;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+}
+
+.footer-bottom p {
+    font-size: 13px;
+    color: #aaa;
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="logoContent">
+        <a href="home.html" class="logo"><img src="images/logo.png" alt="Serving Hearts Logo"></a>
+        </div>
+        <nav id="navbar">
+        <a href="donate.html"><i class="fas fa-hand-holding-heart"></i> Donate</a>
+        <a href="receive.html"><i class="fas fa-tint"></i> Receive</a>
+        <a href="volunteer.html"><i class="fas fa-users"></i> Volunteer</a>
+        <a href="aboutus.html"><i class="fas fa-info-circle"></i> About Us</a>
+        <a href="contactus.html"><i class="fas fa-envelope"></i> Contact Us</a>
+        </nav>
+        <a href="http://localhost/servinghearts/shinventory/index.php" class="signin-btn">
+      <i class="fas fa-sign-in-alt"></i> Sign In</a>
+  </header>
+
+          <section class="aboutus-section">
+            <div class="hero">
+                <h1>About Us</h1>
+            </div>
+            <div class="container">
+                <h2>Our Story</h2>
+                <p>Serving Hearts Charity Inc. was established in 2020 in response to the declining blood supply in the Pasig area. Recognizing the urgent need for a stable blood supply, especially during the COVID-19 pandemic, a group of dedicated individuals came together to form this charitable organization.</p>
+                <p>Our mission is to provide care and support for individuals willing to donate blood. We operate on a unique membership model, fostering a community of committed donors.</p>
+                <p>By encouraging voluntary blood donations and ensuring the blood reaches those in need, Serving Hearts plays a crucial role in saving lives and supporting healthcare facilities in the region.</p>
+                <p>Through community engagement, we continue to raise awareness about the importance of blood donation, making a real difference in people's lives.</p>
+        
+                <h2>Meet Our Team</h2>
+                <div class="team">
+                    <div class="team-member">
+                        <img src="images/a1.jpg" alt="Ma'am Jackie Santos">
+                        <h3>Ma'am Jackie Santos</h3>
+                        <p>Founder & Chairwoman</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="images/a2.jpg" alt="Sir Virgillo Valdez">
+                        <h3>Sir Virgillo Valdez</h3>
+                        <p>Pasig Chapter Administrator</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <footer class="footer">
+    <div class="footer-top">
+        <!-- Left -->
+        <div class="footer-col">
+            <h2>Serving Hearts Charity Inc.</h2>
+            <p>Extending hands to those in need with love and compassion.</p>
+        </div>
+
+        <!-- Middle -->
+        <div class="footer-col">
+            <h3>Contact</h3>
+            <ul>
+                <li><i class="fas fa-map-marker-alt"></i> Eusebio Bliss 3 Multipurpose Hall, Maybunga, Pasig</li>
+                <li><i class="fas fa-phone-alt"></i> 0928 413 8066</li>
+            </ul>
+        </div>
+
+        <!-- Right -->
+        <div class="footer-col">
+            <h3>Follow Us</h3>
+            <div class="social-media">
+                <a href="https://www.facebook.com/servingheartscharity" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 Serving Hearts Charity Inc. | All Rights Reserved</p>
+    </div>
+</footer>
+
+
+
+    <!--Swiper JS-->
+    <script src="WEB/js/swiper-bundle.min.js"></script>
+    <!--Javascript-->
+    <script src="WEB/js/script.js"></script>
+</body>
+</html>
